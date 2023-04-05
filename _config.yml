@@ -1,8 +1,12 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: GhostWriter
+description: Cutting-edge AI for dynamic, up-to-date documentation
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://wallacematthew.github.io
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+  logo: "/assets/images/ghostwriter.png"
+
+  favicon_ico: "/assets/images/ghost.ico"

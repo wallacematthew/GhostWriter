@@ -3,28 +3,8 @@ title: Home
 layout: home
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+Welcome to the GhostWriter documentation site! This is your go-to resource for mastering our cutting-edge, AI-driven platform that's changing the way you manage documentation. Thanks to GhostWriter's active integration with your codebase, UI, and other resources, you'll enjoy a dynamic and evolving documentation experience that keeps pace with today's fast-moving world of development.
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+Here, you'll find all the guides and articles you need to get the most out of GhostWriter. Learn how to set up integrations with Git and Jira, configure style guides and glossaries, and tweak output settings to fit your needs. We've also got you covered with detailed API reference materials, so you can seamlessly integrate your tools with GhostWriter and make the most of our powerful APIs for content retrieval, project management, authentication, and more.
 
-More specifically, the created site:
-
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
-
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
-
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
-
-To get started with creating a site, just click "[use this template]"!
-
-----
-
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+So, dive in and explore the world of GhostWriter. With our innovative AI-driven platform taking care of your documentation, you can focus on what you do best: building amazing products and delivering top-notch user experiences.
