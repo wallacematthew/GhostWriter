@@ -23,12 +23,13 @@ This article provides an overview of the Content Export Webhook, including how t
 
 To use the Content Export Webhook, you'll need to register a webhook URL in your GhostWriter account settings. Follow these steps:
 
-1. Log in to your GhostWriter account and navigate to the settings page.
-2. Locate the "Webhooks" section.
-3. Click "Add Webhook."
+1. Log in to your GhostWriter account.
+1. Go to the **Projects** page and select a project.
+2. Go to the **Webhooks** section.
+3. Click **Add Webhook.**
 4. Enter a name for your webhook and provide the webhook URL where GhostWriter should send the exported content.
-5. Select "Content Export" as the webhook event type.
-6. Click "Save" to register the webhook.
+5. Select **Content Export** as the webhook event type.
+6. Click **Save** to register the webhook.
 
 ## Configuring the Export Request
 
@@ -36,12 +37,13 @@ To initiate a content export request, use the GhostWriter API or the UI. When us
 
 ```json
 {
-  "projectId": "your_project_id",
-  "outputFormat": "pdf",
-  "language": "en",
-  "webhook": "your_webhook_id"
+  **projectId**: **your_project_id**,
+  **outputFormat**: **pdf**,
+  **language**: **en**,
+  **webhook**: **your_webhook_id**
 }
 ```
+
 ## Handling the Webhook Payload
 
 When GhostWriter completes the content export, it sends an HTTP POST request to the registered webhook URL. The request payload contains the exported content and metadata about the export request.
@@ -50,20 +52,18 @@ When GhostWriter completes the content export, it sends an HTTP POST request to 
 
 ```json
 {
-  "event": "content_export",
-  "timestamp": 1620421315,
-  "data": {
-    "projectId": "your_project_id",
-    "outputFormat": "pdf",
-    "language": "en",
-    "file": {
-      "filename": "exported_content.pdf",
-      "content": "base64_encoded_exported_content"
+  **event**: **content_export**,
+  **timestamp**: 1620421315,
+  **data**: {
+    **projectId**: **your_project_id**,
+    **outputFormat**: **pdf**,
+    **language**: **en**,
+    **file**: {
+      **filename**: **exported_content.pdf**,
+      **content**: **base64_encoded_exported_content**
     }
   }
 }
 ```
 
 Upon receiving the webhook request, your server or application should process the content accordingly. This may involve decoding the base64-encoded content, saving the file, distributing it to team members, or publishing it on a website.
-
-For more information on handling webhook payloads and managing webhooks in GhostWriter, please refer to the Webhooks documentation.

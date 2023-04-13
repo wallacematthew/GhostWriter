@@ -6,7 +6,7 @@ has_children: false
 has_toc: true
 ---
 
-# Set up integrations
+# Set up Integrations
 {: .no_toc }
 
 To get started with GhostWriter, you'll need to connect your company's resources to the platform. This includes version control systems, project management tools, and continuous integration and deployment tools. Here's a quick overview of how to connect each type of resource:
