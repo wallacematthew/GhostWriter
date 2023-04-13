@@ -6,8 +6,15 @@ nav_order: 4
 ---
 
 # Errors and Troubleshooting
+{: .no_toc }
 
 This article provides an overview of the industry-standard API errors used by GhostWriter and offers suggestions for troubleshooting these errors. Understanding the various error codes and their meaning can help you quickly identify and resolve issues when integrating with the GhostWriter API.
+
+## Table of contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Common API Errors
 

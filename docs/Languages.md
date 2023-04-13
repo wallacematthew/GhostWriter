@@ -1,6 +1,21 @@
+---
+layout: default
+title: Supported languages
+nav_order: 5
+has_children: false
+has_toc: true
+---
+
 # GhostWriter Supported Languages and Language Configuration
+{: .no_toc }
 
 GhostWriter is designed to accommodate the diverse language needs of its users. This article provides an overview of the currently supported languages, languages that are planned for future support, and guidance on how to change the default output language in GhostWriter.
+
+## Table of contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Supported Languages
 

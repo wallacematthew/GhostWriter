@@ -6,8 +6,15 @@ nav_order: 1
 ---
 
 # Authentication API
+{: .no_toc }
 
 The Authentication API manages the authentication and authorization of users and third-party applications, allowing secure access to the platform's features and data.
+
+## Table of contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Endpoint
 
@@ -24,21 +31,16 @@ The Authentication API manages the authentication and authorization of users and
 
 ## Sample Request
 
+```bash
+curl -X POST "https://ghostwriter.example.com/api/v1/auth/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "grant_type=password&username=user@example.com&password=my_password"
 ```
-http
-POST /api/v1/auth/token HTTP/1.1
-Host: ghostwriter.example.com
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=password&username=user@example.com&password=my_password
-```
+This request sends a POST request to the endpoint `/api/v1/auth/token` on the domain `ghostwriter.example.com`, with the Content-Type header set to `application/x-www-form-urlencoded`. The request data includes the grant type (password), the user's email address or username, and the user's password.
 
 ## Sample Response
 
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
+```json
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "token_type": "Bearer",
@@ -50,10 +52,7 @@ Content-Type: application/json
 
 ## Error Response
 
-```
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "error": "invalid_grant",
   "error_description": "Invalid username and password combination."

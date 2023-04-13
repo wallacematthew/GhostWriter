@@ -1,8 +1,23 @@
+---
+layout: default
+title: Webhooks
+nav_order: 8
+has_children: false
+has_toc: true
+---
+
 # Content Export Webhook
+{: .no_toc }
 
 The Content Export Webhook allows you to receive generated content asynchronously, providing a more efficient and scalable solution for exporting large amounts of content or handling high volumes of export requests. Instead of waiting for a synchronous API call to complete, GhostWriter sends an HTTP request to a specified webhook URL with the exported content in the request payload.
 
 This article provides an overview of the Content Export Webhook, including how to register a webhook URL, configure the export request, and handle the webhook payload.
+
+## Table of contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Registering a Webhook URL
 
@@ -33,6 +48,7 @@ When GhostWriter completes the content export, it sends an HTTP POST request to 
 
 ## Sample Webhook Payload
 
+```json
 {
   "event": "content_export",
   "timestamp": 1620421315,
@@ -46,6 +62,7 @@ When GhostWriter completes the content export, it sends an HTTP POST request to 
     }
   }
 }
+```
 
 Upon receiving the webhook request, your server or application should process the content accordingly. This may involve decoding the base64-encoded content, saving the file, distributing it to team members, or publishing it on a website.
 

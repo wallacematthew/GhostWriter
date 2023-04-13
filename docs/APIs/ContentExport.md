@@ -6,8 +6,15 @@ nav_order: 2
 ---
 
 # Content Export API
+{: .no_toc }
 
 The Content Export API allows you to export the generated content in various formats, such as PDF, HTML, or Markdown. It enables users to easily share and distribute their documentation across different channels and platforms.
+
+## Table of contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Endpoint
 
@@ -25,27 +32,22 @@ The Content Export API allows you to export the generated content in various for
 
 ## Sample Request
 
+```bash
+curl -X POST "https://ghostwriter.example.com/api/v1/content/export" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer <your_access_token>" \
+     -d '{
+           "project_id": "12345",
+           "format": "pdf",
+           "filename": "my-documentation",
+           "destination": "https://example.com/exports/"
+         }'
 ```
-http
-POST /api/v1/content/export HTTP/1.1
-Host: ghostwriter.example.com
-Content-Type: application/json
-Authorization: Bearer <your_access_token>
-
-{
-  "project_id": "12345",
-  "format": "pdf",
-  "filename": "my-documentation",
-  "destination": "https://example.com/exports/"
-}
-
-HTTP/1.1 200 OK
-Content-Type: application/json
-```
+This request sends a POST request to the `/api/v1/content/export` endpoint on the domain `ghostwriter.example.com`, with the `Content-Type` header set to `application/json` and the `Authorization` header set to `Bearer <your_access_token>`. The request data includes the project_id, format, filename, and destination for the exported content.
 
 ## Sample Response
 
-```
+```json
 {
   "status": "success",
   "message": "Content exported successfully.",
@@ -58,10 +60,7 @@ Content-Type: application/json
 
 ## Error Response
 
-```
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "status": "error",
   "message": "Invalid format specified.",

@@ -41,19 +41,21 @@ search:
 # Supports true (default) or false
 heading_anchors: true
 
+callouts_level: quiet # or loud
 callouts:
   highlight:
-    title: 
     color: blue
-
-callouts:
+  important:
+    title: Important
+    color: purple
+  new:
+    title: New
+    color: green
   note:
-    title: 
+    title: Note
     color: yellow
-
-callouts:
   warning:
-    title: 
+    title: Warning
     color: red
 
 # For copy button on code
