@@ -35,7 +35,7 @@ To use the Content Export Webhook, you'll need to register a webhook URL in your
 
 To initiate a content export request, use the GhostWriter API or the UI. When using the API, include the `webhook` parameter in your export request payload, and set its value to the registered webhook's ID. The export request should also include any other necessary parameters, such as `projectId`, `outputFormat`, and `language`.
 
-```json
+```
 {
   **projectId**: **your_project_id**,
   **outputFormat**: **pdf**,
@@ -50,7 +50,7 @@ When GhostWriter completes the content export, it sends an HTTP POST request to 
 
 ## Sample Webhook Payload
 
-```json
+```
 {
   **event**: **content_export**,
   **timestamp**: 1620421315,
