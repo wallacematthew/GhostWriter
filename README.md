@@ -1,1 +1,1 @@
-This is a sample documentation site created with [Jekyll](https://jekyllrb.com/) using the [just-the-docs](https://github.com/just-the-docs/just-the-docs) theme. It's managed in [GitHub](https://github.com/wallacematthew/GhostWriter) and deployed via [Netlify](https://www.netlify.com/). 
+This is a sample documentation site created with [Jekyll](https://jekyllrb.com/) using the [just-the-docs](https://github.com/just-the-docs/just-the-docs) theme. It's deployed via [Netlify](https://www.netlify.com/). 
