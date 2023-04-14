@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Supported languages
+title: Supported Languages
 nav_order: 5
 has_children: false
 has_toc: true

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Set up integrations
+title: Set up Integrations
 nav_order: 3
 has_children: false
 has_toc: true
