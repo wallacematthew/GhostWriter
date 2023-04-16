@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Content Export API
+title: Content Generation API
 parent: APIs
 nav_order: 2
 ---
@@ -8,7 +8,7 @@ nav_order: 2
 # Content Export API
 {: .no_toc }
 
-The Content Export API allows you to export the generated content in various formats, such as PDF, HTML, or Markdown. It enables users to easily share and distribute their documentation across different channels and platforms.
+GhostWriter's content generation API allows developers to programmatically generate a variety of help and support content, such as release notes, executive summaries, how-to guides, overviews, tutorials, and get started guides. The API provides a flexible and powerful way to generate high-quality content that meets your specific needs. In this guide, we'll walk through the various parameters that can be used with the GhostWriter content generation API.
 
 ## Table of contents
 {: .no_toc }
@@ -16,59 +16,104 @@ The Content Export API allows you to export the generated content in various for
 - TOC
 {:toc}
 
-## Endpoint
+## API Endpoints
+The GhostWriter content generation API has the following endpoints:
 
-```GET /api/v1/content/export```
+GET `/api/v1/content`: generates content based on the specified parameters.
 
 ## Parameters
 
-| Parameter     | Type   | Description                                                                                                 | Required |
-|---------------|--------|-------------------------------------------------------------------------------------------------------------|----------|
-| `project_id`  | string | The unique identifier of the project for which the content is being exported.                               | Yes      |
-| `format`      | string | The desired output format for the exported content. Accepted values: `pdf`, `html`, `markdown`.             | Yes      |
-| `filename`    | string | The desired filename for the exported content.                                                              | No       |
-| `destination` | string | The destination URL or path where the exported content should be stored.                                    | No       |
-| `access_token`| string | The authentication token for the user or application making the request.                                   | Yes      |
+| Parameter     | Description                                                                                                 |
+|---------------|-------------------------------------------------------------------------------------------------------------|
+| `article_type` | Specifies the type of article to generate. Possible values include "release_note", "executive_summary", "how_to_guide", "overview", "tutorial", "get_started_guide", and more. |
+| `length`       | Specifies the desired length of the generated content in words or characters.                             |
+| `topic`        | Specifies the topic or subject matter of the generated content.                                            |
+| `style`        | Specifies the style or tone of the generated content, such as formal, informal, technical, or humorous.  |
+| `language`     | Specifies the language of the generated content, such as English, Spanish, or French.                     |
+| `format`       | Specifies the format of the generated content, such as HTML, Markdown, or plain text.                     |
+| `template`     | Specifies a pre-built template to use for the generated content, such as a blog post template, email template, or landing page template. |
+| `data_source`  | Specifies the data sources to use when generating the content, such as Jira tickets, pull requests, product specs, and more. |
+| `audience`     | Specifies the target audience for the generated content, such as developers, end-users, or executives.   |
 
-## Sample Request
 
-```bash
-curl -X POST "https://ghostwriter.example.com/api/v1/content/export" \
-     -H "Content-Type: application/json" \
-     -H "Authorization: Bearer <your_access_token>" \
-     -d '{
-           "project_id": "12345",
-           "format": "pdf",
-           "filename": "my-documentation",
-           "destination": "https://example.com/exports/"
-         }'
+## Sample Requests and Response
+
+Here's a sample request (in cURL) to generate a release note with a length of 500 words, a formal style, and data sources from Jira tickets and product specs:
+
+### cURL
+```zsh
+curl --location --request GET 'https://api.ghostwriter.com/content?article_type=release_note&length=500&style=formal&data_source=jira_tickets,product_specs' \
+--header 'Authorization: Bearer API_KEY'
 ```
-This request sends a POST request to the `/api/v1/content/export` endpoint on the domain `ghostwriter.example.com`, with the `Content-Type` header set to `application/json` and the `Authorization` header set to `Bearer <your_access_token>`. The request data includes the project_id, format, filename, and destination for the exported content.
+### Python
+```python
+import requests
+
+url = "https://api.ghostwriter.com/content"
+querystring = {
+    "article_type": "release_note",
+    "length": "500",
+    "style": "formal",
+    "data_source": "jira_tickets,product_specs"
+}
+headers = {
+    "Authorization": "Bearer API_KEY"
+}
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+print(response.json())
+```
+
+### JavaScript (Node.js)
+```js
+const https = require('https');
+const options = {
+    hostname: 'api.ghostwriter.com',
+    path: '/content?article_type=release_note&length=500&style=formal&data_source=jira_tickets,product_specs',
+    headers: {
+        'Authorization': 'Bearer API_KEY'
+    }
+};
+
+https.get(options, (res) => {
+    let data = '';
+    res.on('data', (chunk) => {
+        data += chunk;
+    });
+    res.on('end', () => {
+        console.log(JSON.parse(data));
+    });
+}).on('error', (err) => {
+    console.log(err);
+});
+```
+
+### Ruby
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://api.ghostwriter.com/content?article_type=release_note&length=500&style=formal&data_source=jira_tickets,product_specs")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = 'Bearer API_KEY'
+
+response = http.request(request)
+puts response.read_body
+```
 
 ## Sample Response
 
-```json
-{
-  "status": "success",
-  "message": "Content exported successfully.",
-  "data": {
-    "project_id": "12345",
-    "format": "pdf",
-    "filename": "my-documentation",
-    "destination": "https://example.com/
-```
-
-## Error Response
+And here's a sample response (in JSON) for the above requests:
 
 ```json
 {
-  "status": "error",
-  "message": "Invalid format specified.",
-  "errors": [
-    {
-      "parameter": "format",
-      "message": "Accepted values are 'pdf', 'html', 'markdown'."
-    }
-  ]
+   "title": "Release Notes: Version 1.2.3",
+   "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non feugiat turpis, eget elementum nibh. Vestibulum auctor nibh eget luctus scelerisque. Nunc congue lacus in turpis luctus malesuada. Quisque convallis vehicula metus, eu fringilla mauris pretium at. Duis auctor turpis vitae diam rhoncus pretium. Integer condimentum ultricies nisl. Vestibulum vel interdum odio. Sed sit amet faucibus velit. Nullam mattis urna vel ullamcorper malesuada."
 }
 ```

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Set up Integrations
-nav_order: 3
+nav_order: 4
 has_children: false
 has_toc: true
 ---
@@ -9,137 +9,64 @@ has_toc: true
 # Set up Integrations
 {: .no_toc }
 
-To get started with GhostWriter, you'll need to connect your company's resources to the platform. This includes version control systems, project management tools, and continuous integration and deployment tools. Here's a quick overview of how to connect each type of resource:
+With GhostWriter, you can consume your codebase, DevOps tools, UI, and other resources and automatically write in-app tooltips and copy, help center articles, robust API and webhook docs, marketing copy, and more. GhostWriter integrates with a variety of third-party tools to help you streamline your content creation process. In this guide, we'll cover how to integrate GhostWriter with some popular tools.
 
-* **Version Control Systems**: GhostWriter supports popular VCS like Git, Mercurial, and Subversion. You'll need to provide access credentials and repository URLs during the integration process.
-* **Project Management Tools**: GhostWriter can integrate with Jira, Trello, Asana, and other project management tools to ensure seamless collaboration. To integrate, simply provide your API keys or OAuth tokens, along with any necessary configuration details.
-* **Continuous Integration and Deployment**: Connect GhostWriter to Jenkins, GitLab CI/CD, or GitHub Actions to automate documentation updates during the development process. Configure webhooks and API access for smooth integration.
-
-## Table of contents
+## Table of Contents
 {: .no_toc }
 
 - TOC
 {:toc}
 
-## How to Set Up an Integration Between GhostWriter and Git
+# Integrating GhostWriter with Other Tools
 
-This how-to guide will walk you through the process of integrating GhostWriter with your Git repository, enabling the platform to access your site's code and generate documentation based on the information found within. Follow these steps to establish a secure connection between GhostWriter and your Git repository.
+**GhostWriter** is an AI-driven platform that helps software companies automatically write and update API docs, how-to guides, tutorials, and other help/support content. 
 
-### Prerequisites
+## GitHub Integration
 
-- A GhostWriter account
-- A Git repository containing your site's code
-
-### Step 1: Generate an Access Token or SSH Key
-
-First, you'll need to create an access token or SSH key to authenticate GhostWriter's connection to your Git repository.
-
-#### For GitHub:
-
-1. Log in to your GitHub account.
-2. Click on your profile picture in the top-right corner and select **Settings.**
-3. In the left sidebar, click on **Developer settings**.
-4. Click on **Personal access tokens**, then click **Generate new token**.
-5. Add a descriptive note for the token (e.g., **GhostWriter Integration**), and select the **repo** scope.
-6. Click **Generate token** at the bottom of the page.
-7. Copy the generated token.
-
-{: .note } 
-Be sure to copy your token, as you won't be able to view it again. If you lose your token, you'll need to generate a new one.
-
-#### For GitLab:
-
-1. Log in to your GitLab account.
-2. Click on your profile picture in the top-right corner and select **Settings**.
-3. In the left sidebar, click on **Access Tokens**.
-4. Add a name and optional expiration date for the token (e.g., **GhostWriter Integration**).
-5. Select the **read_repository** scope.
-6. Click **Create personal access token**.
-7. Copy the generated token.
-
-Be sure to copy your token, as you won't be able to view it again. If you lose your token, you'll need to generate a new one.
-{: .note }
-
-#### For Bitbucket:
-
-1. Log in to your Bitbucket account.
-2. Click on your profile picture in the bottom-left corner and select **Personal settings**.
-3. In the left sidebar, click on **SSH keys**.
-4. Generate a new SSH key using a tool like `ssh-keygen` and copy the public key.
-5. Click **Add key** and paste your public key into the **Key** field.
-6. Add a label for the key (e.g., **GhostWriter Integration**) and click **Add key** again.
-
-### Step 2: Add Git Repository to GhostWriter
-
-Now that you have an access token or SSH key, you can add your Git repository to GhostWriter:
+Integrating GhostWriter with GitHub allows you to generate release notes and other help content automatically whenever you push code to a repository. To set up the integration, follow these steps:
 
 1. Log in to your GhostWriter account.
-2. Navigate to the **Integrations** or **Connections** section.
-3. Click **Add Integration** or **Connect Repository** and select your Git provider (GitHub, GitLab, or Bitbucket).
-4. Enter the required information, such as the repository URL and your access token (or SSH key for Bitbucket).
-5. Click **Add** or **Connect** to complete the integration process.
+2. Navigate to the **Integrations** page.
+3. Click on the **GitHub** button.
+4. Follow the instructions to authorize GhostWriter to access your GitHub account.
+5. Select the repositories you want to integrate with GhostWriter.
+6. Customize your integration settings, such as the branch to monitor and the content to generate.
+7. Save your settings.
 
-### Step 3: Configure GhostWriter Settings
+## CircleCI Integration
 
-After successfully connecting your Git repository, you may need to configure additional settings in GhostWriter to ensure proper content generation:
-
-1. Select the relevant project or [create a new one](/_site/docs/Ghostwriter.html) in GhostWriter.
-2. In the project settings, ensure that your Git repository is selected as the source for your site's code.
-3. Configure any additional settings as needed, such as content templates, style guides, or branch preferences.
-4. Save your changes.
-
-GhostWriter should now have access to your Git repository and be able to read your site's code to generate documentation. As you update your codebase, GhostWriter will automatically keep your documentation in sync with the latest changes.
-
-## How to Set Up an Integration Between GhostWriter and Jira
-
-This how-to guide will walk you through the process of integrating GhostWriter with your Jira instance. By connecting GhostWriter to Jira, you'll enable seamless collaboration between your documentation projects and your development tasks. Follow these steps to establish a secure connection between GhostWriter and your Jira instance.
-
-### Prerequisites
-
-- A GhostWriter account
-- A Jira account (Cloud or Server)
-
-### Step 1: Generate an API Token (Jira Cloud) or Create an Application Link (Jira Server)
-
-First, you'll need to create an API token (for Jira Cloud) or set up an application link (for Jira Server) to authenticate GhostWriter's connection to your Jira instance.
-
-#### For Jira Cloud:
-
-1. Log in to your [Atlassian account](https://id.atlassian.com/manage/api-tokens).
-2. Click on **API tokens** in the left sidebar, then **Create API token**.
-3. Add a descriptive label for the token (e.g., **GhostWriter Integration**).
-4. Click **Create** and copy the generated token.
-
-Be sure to copy your token, as you won't be able to view it again. If you lose your token, you'll need to generate a new one.
-{: .note }
-
-#### For Jira Server:
-
-1. Log in to your Jira instance as an administrator.
-2. Click on the gear icon in the top-right corner and select **Applications**.
-3. In the **Integrations** section, click on **Application links**.
-4. Enter the URL of your GhostWriter instance and click **Create new link**.
-5. Complete the **Link applications** form, providing a descriptive name (e.g., **GhostWriter Integration**) and leaving other fields as default.
-6. Click **Continue** to create the application link.
-
-### Step 2: Add Jira Integration to GhostWriter
-
-Now that you have an API token or an application link, you can connect your Jira instance to GhostWriter:
+Integrating GhostWriter with CircleCI allows you to automatically generate help content whenever a build or deployment is triggered in CircleCI. To set up the integration, follow these steps:
 
 1. Log in to your GhostWriter account.
-2. Navigate to the **Projects** section and select a project.
-1. Go to the **Integrations** ssection.
-3. Click **Add Integration** and select **Jira.**
-4. Enter the required information, such as your Jira instance URL, email address (for Jira Cloud), and API token (or OAuth credentials for Jira Server).
-5. Click **Connect** to complete the integration process.
+2. Navigate to the **Integrations** page.
+3. Click on the **CircleCI** button.
+4. Follow the instructions to authorize GhostWriter to access your CircleCI account.
+5. Select the project you want to integrate with GhostWriter.
+6. Customize your integration settings, such as the trigger events and the content to generate.
+7. Save your settings.
 
-### Step 3: Configure GhostWriter Settings
+## Jira Integration
 
-After successfully connecting your Jira instance, you may need to configure additional settings in GhostWriter to ensure seamless collaboration between your documentation projects and development tasks:
+Integrating GhostWriter with Jira allows you to automatically generate help content whenever a new issue or ticket is created in Jira. To set up the integration, follow these steps:
 
-1. Navigate to the **Projects** section and select a project.
-2. In the **Settings** section, ensure that your Jira instance is selected as the project management tool.
-3. Configure any additional settings as needed, such as mapping documentation statuses to Jira issue statuses or setting up custom issue types.
-4. Save your changes.
+1. Log in to your GhostWriter account.
+2. Navigate to the **Integrations** page.
+3. Click on the **Jira** button.
+4. Follow the instructions to authorize GhostWriter to access your Jira account.
+5. Select the project you want to integrate with GhostWriter.
+6. Customize your integration settings, such as the trigger events and the content to generate.
+7. Save your settings.
 
-GhostWriter should now have access to your Jira instance, allowing you to create, manage, and synchronize documentation tasks with your development tasks. As you update your tasks in Jira, GhostWriter will automatically reflect the changes in your documentation projects.
+## Confluence/Notion Integration
+
+Integrating GhostWriter with Confluence or Notion allows you to automatically generate help content and wiki articles whenever you create or update pages in Confluence or Notion. To set up the integration, follow these steps:
+
+1. Log in to your GhostWriter account.
+2. Navigate to the **Integrations** page.
+3. Click on the **Confluence** or **Notion** button.
+4. Follow the instructions to authorize GhostWriter to access your Confluence or Notion account.
+5. Select the space or page you want to integrate with GhostWriter.
+6. Customize your integration settings, such as the content to generate and where to publish it.
+7. Save your settings.
+
+Congratulations! You've now learned how to integrate GhostWriter with some popular third-party tools. To learn more about how to use GhostWriter's APIs, codebase integration, help center integration, in-app help integration, release notes integration, troubleshooting and support, and glossary of key terms and concepts, refer to the relevant sections in the GhostWriter help center.
