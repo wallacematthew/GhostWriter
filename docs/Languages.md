@@ -43,11 +43,11 @@ Stay tuned for updates and announcements about the availability of these languag
 To change the default output language for GhostWriter, follow these steps:
 
 1. Log in to your GhostWriter account and navigate to the settings page.
-2. Locate the "Language Settings" section.
-3. Click on the "Default Output Language" dropdown menu.
+2. Locate the **Language Settings** section.
+3. Click on the **Default Output Language** dropdown menu.
 4. Select the desired language from the list of available options.
-5. Click "Save Changes" to apply the new default language.
+5. Click **Save Changes** to apply the new default language.
 
 Now, GhostWriter will generate content in the selected language by default. Note that you can also specify the output language on a per-request basis when using the GhostWriter API. Simply include the `language` parameter in your API request, and set its value to the desired language code (e.g., `en` for English, `es` for Spanish, or `fr` for French).
 
-For more information on the available language codes and how to use them in API requests, please refer to the GhostWriter API documentation.
+For more information on the available language codes and how to use them in API requests, please refer to the [GhostWriter API documentation](docs/APIs/APIs.html).
