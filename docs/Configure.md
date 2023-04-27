@@ -72,4 +72,4 @@ To ensure that your content is secure and that only authorized users can access 
 5. Set your user and app permissions.
 6. Save your changes.
 
-Congratulations! You've now learned how to configure a GhostWriter project. To learn more about how to use GhostWriter's APIs
+Congratulations! You've now learned how to configure a GhostWriter project. Next, [learn more about GhostWriter's APIs.](/docs/APIs/APIs.html).
